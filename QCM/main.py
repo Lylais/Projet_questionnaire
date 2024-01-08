@@ -56,7 +56,7 @@ def CreerQcm():
 
         print(qcm)
         print(scale_point)
-
+        #ajout éventuel d'une ou plusieurs autres questions
         choix_utilisateur = input("Voulez-vous ajouter une autre question ? O/N ").upper()
         if choix_utilisateur != 'O':
             qcm.append({'scale_point': scale_point})
@@ -75,33 +75,6 @@ def CreerQcm():
             print(f"Fichier pickle créé avec succès dans le dossier : {chemin_dossier}")
             print(f"Chemin complet du fichier pickle : {chemin_pickle}")
             return scale_point
-
-
-
-
-def ModyQcm(): #Dont work
-    while True:
-        qcm = []
-        question = input("Veuillez entrer la question : ")
-        bonne_reponse = input("Veuillez entrer la bonne réponse : ")
-        mauvaise_reponse = input("Veuillez entrer la mauvaise réponse : ")
-        point_bonne_reponse = int(input("Veuillez entrer le nombre de points rapportés par la bonne réponse : "))
-        point_mauvaise_reponse = int(input("Veuillez entrer le nombre de points perdus par la mauvaise réponse : "))
-
-        qcm.append({
-            'Question': question,
-            'exacte': bonne_reponse,
-            'inexacte': mauvaise_reponse,
-            'good points': point_bonne_reponse,
-            'bad points': point_mauvaise_reponse
-        })
-
-        scale_point += point_bonne_reponse
-
-        print(qcm)
-        print(scale_point)
-
-        choix_utilisateur = input("Voulez-vous ajouter une autre question ? O/N ").upper()  
 
 
 def start():
