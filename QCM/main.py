@@ -39,7 +39,7 @@ def CreerQcm():
                 
                 # Vérification des exigences
                 if point_bonne_reponse > 0 and point_mauvaise_reponse >= 0:
-                    break
+                    print("Barème valide")
                 else:
                     print("Les points doivent être supérieurs à 0 (pour la bonne réponse) et supérieurs ou égaux à 0 (pour la mauvaise réponse).")
             except ValueError:
