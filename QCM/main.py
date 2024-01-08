@@ -39,7 +39,7 @@ def CreerQcm():
                 
                 # Vérification des exigences
                 if point_bonne_reponse > 0 and point_mauvaise_reponse >= 0:
-                    print("Barème valide")
+                    break
                 else:
                     print("Les points doivent être supérieurs à 0 (pour la bonne réponse) et supérieurs ou égaux à 0 (pour la mauvaise réponse).")
             except ValueError:
@@ -84,17 +84,15 @@ def start():
         CreerQcm()
     else : 
         print("Bienvenu au menu du jeu ! ")
-        print("1. Lancer une partie \n 2. Modifier un QCM \n 3. Créer un QCM")
+        print("1. Lancer une partie \n 2. Créer un QCM")
         choice_start = None
-        while choice_start not in ['1', '2', '3'] :
+        while choice_start not in ['1', '2'] :
             choice_start = str(input("Veuillez choisir une option : "))
             if choice_start not in ['1', '2', '3']:
                 print("Veuillez rentrer une réponse correcte")
             elif choice_start == '1':
                 lecture_qcm()
             elif choice_start =='2':
-                ModyQcm()
-            elif choice_start =='3':
                 CreerQcm()
 
 
