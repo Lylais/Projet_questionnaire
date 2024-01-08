@@ -4,11 +4,8 @@ from gestion_qcm import questionnaire
 script_directory = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(script_directory, 'liste_nom_qcm.txt')
 dossier_nom = "Save_questionaire"  # Remplacez cela par le nom du dossier que vous souhaitez
-chemin_dossier = os.path.join(os.getcwd(), dossier_nom)
+chemin_dossier = os.path.join(script_directory, dossier_nom)
 
-
-import os
-import pickle
 
 def CreerQcm():
     """ fonction permettant de créer un fichier portant le nom de QCM"""
