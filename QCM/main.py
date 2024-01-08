@@ -71,10 +71,10 @@ def CreerQcm():
 
             with open(chemin_pickle, 'wb') as d:
                 pickle.dump(qcm, d)
+
+            return 0
                 
-            print(f"Fichier pickle créé avec succès dans le dossier : {chemin_dossier}")
-            print(f"Chemin complet du fichier pickle : {chemin_pickle}")
-            return scale_point
+            
 
 
 def start():
@@ -82,9 +82,10 @@ def start():
     file_size = os.path.getsize(file_path)
     if file_size < 1:
         CreerQcm()
+        start()
     else : 
         print("Bienvenu au menu du jeu ! ")
-        print("1. Lancer une partie \n 2. Créer un QCM")
+        print("1. Lancer une partie \n2. Créer un QCM")
         choice_start = None
         while choice_start not in ['1', '2'] :
             choice_start = str(input("Veuillez choisir une option : "))
@@ -109,7 +110,7 @@ def lecture_qcm():
         print(f"{i}. {ligne.strip()}")
 
     number_list = [str(i) for i in range(1, len(lignes) + 1)]
-    print(number_list)
+    
 
     user_choice = input("\nVeuillez choisir un des questionnaires ici présent : ")
 
@@ -120,21 +121,19 @@ def lecture_qcm():
     # Obtenez le nom du questionnaire sélectionné
     index_questionnaire = int(user_choice) - 1
     nom_questionnaire = lignes[index_questionnaire].strip()
-    print(nom_questionnaire)
     # Construisez le chemin complet du fichier pickle
     chemin_pickle = os.path.join(chemin_dossier, f'{nom_questionnaire}.pkl')
-    print(chemin_pickle)
+    
     # Vérifiez si le fichier pickle existe avant de le désérialiser
     if os.path.exists(chemin_pickle):
         with open(chemin_pickle, 'rb') as file_pickle:
             qcm_deserialize = pickle.load(file_pickle)
-            print("Désérialisation réussie :")
             questionnaire(qcm_deserialize)
             
 
     else:
         print("Le fichier pickle n'existe pas pour le questionnaire sélectionné.")
-    print("Ok")
+    
 
     # à compléter
 if __name__ == "__main__" : 
