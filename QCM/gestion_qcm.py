@@ -58,9 +58,7 @@ def questionnaire(q):
     # Supprimer le dictionnaire avec la clé 'scale_point'
     q.remove(scale_point_dict)
     number_list = list(range(len(q)))
-    print(number_list)
 
-    print(q)
 
     random.shuffle(number_list)  # Shuffle the list of question numbers
     for nbr in number_list:  # Iterate over the shuffled list
@@ -72,5 +70,3 @@ def questionnaire(q):
 
     print("Fin du questionnaire, merci d'avoir répondu!")
     print(f"Votre score est de {score}/{scale_point}")
-
-
